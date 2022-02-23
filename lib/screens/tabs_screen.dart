@@ -1,7 +1,7 @@
 //noon
 import 'package:flutter/material.dart';
 
-import './place_detail_screen.dart';
+import 'place_map_screen.dart';
 import './more_info_screen.dart';
 import '../models/place_data.dart';
 
@@ -18,7 +18,7 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     var selectedPlace;
     _pages = [
-      {'page': PlaceDetailScreen(), 'title': 'Co-working Space'},
+      {'page': PlaceMapScreen(), 'title': 'Co-working Space'},
       {'page': MoreInfoScreen(), 'title': 'Information'},
     ];
 

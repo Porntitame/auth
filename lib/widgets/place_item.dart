@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../screens/place_detail_screen.dart';
+import '../screens/place_map_screen.dart';
 
 import '../models/place.dart';
 
@@ -20,7 +20,7 @@ class PlaceItem extends StatelessWidget {
   void selectPlace(BuildContext context) {
     Navigator.of(context)
         .pushNamed(
-      PlaceDetailScreen.routeName,
+      PlaceMapScreen.routeName,
       arguments: id,
     )
         .then((result) {

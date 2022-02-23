@@ -4,7 +4,7 @@ import 'package:flutter_complete_guide/screens/network_screen.dart';
 
 import '../screens/auth_screen.dart';
 import '../screens/places_screen.dart';
-import '../screens/place_detail_screen.dart';
+import 'screens/place_map_screen.dart';
 import '../screens/more_info_screen.dart';
 import '../screens/tabs_screen.dart';
 
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
             return AuthScreen();
           }),
       routes: {
-        PlaceDetailScreen.routeName: (ctx) => TabsScreen(),
+        PlaceMapScreen.routeName: (ctx) => TabsScreen(),
         MoreInfoScreen.routeName: (ctx) => MoreInfoScreen(),
         NetworkScreen.routeName: (ctx) => NetworkScreen(),
       },

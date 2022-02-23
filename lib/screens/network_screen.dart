@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-//import '../models/signal.dart';
+import '../models/signal.dart';
 import 'dart:async';
 
 import 'package:wifi_hunter/wifi_hunter.dart';
@@ -25,10 +25,6 @@ class _NetworkScreenState extends State<NetworkScreen> {
     super.initState();
   }
 
-  double findFag(number) {
-    return number * (number - 1);
-  }
-
   Future<void> huntWiFis() async {
     setState(() => huntButtonColor = Colors.grey.shade200);
 
@@ -38,8 +34,9 @@ class _NetworkScreenState extends State<NetworkScreen> {
       wiFiHunterResults = (await WiFiHunter.huntWiFiNetworks);
       wiFiHunterResult = [];
       for (int index = 0; index < wiFiHunterResults.results.length; index++) {
-        if (['Noon', 'BB Court C_FL1-1']
-            .contains(wiFiHunterResults.results[index].SSID)) {
+        // if (['Noon', 'BB Court C_FL1-1']
+        //     .contains(wiFiHunterResults.results[index].SSID))
+        {
           wiFiHunterResult.add(wiFiHunterResults.results[index]);
         }
         // if (wiFiHunterResults.results[index].SSID == 'Noon' || wiFiHunterResults.results[index].SSID == 'D') {
@@ -67,7 +64,7 @@ class _NetworkScreenState extends State<NetworkScreen> {
   // };
 
   // List available = [];
-
+ 
   // void _setFilters(Map<String, bool> filterData) {
   //   setState(() {
   //     _filters = filterData;
