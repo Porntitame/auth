@@ -39,18 +39,27 @@ class _TabsScreenState extends State<TabsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(0, 153, 170, 1),
-        title: Text(
-          _pages[_selectPageIndex]['title'],
-          style: TextStyle(color: Colors.grey.shade900),
+        backgroundColor: Colors.white,
+        title: Row(
+          children: [
+            Container(height: 30, child: Image.asset("assets/images/logo.png")),
+            Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: Text(
+                _pages[_selectPageIndex]['title'],
+                style: TextStyle(color: Colors.grey.shade800),
+              ),
+            ),
+          ],
         ),
+        iconTheme: IconThemeData(color: Colors.grey.shade700),
       ),
       body: _pages[_selectPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
-        backgroundColor: Colors.amber.shade300,
+        backgroundColor: Colors.grey.shade300,
         unselectedItemColor: Colors.grey.shade600,
-        selectedItemColor: Colors.pink,
+        selectedItemColor: Colors.lightBlueAccent.shade400,
         currentIndex: _selectPageIndex,
         //type: BottomNavigationBarType.shifting,
         items: [

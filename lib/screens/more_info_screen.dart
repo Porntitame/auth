@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/main_drawer.dart';
+import '../main_drawer.dart';
 
 import '../models/place_data.dart';
 
@@ -55,10 +55,8 @@ class MoreInfoScreen extends StatelessWidget {
               ),
               Card(
                 child: ListTile(
-                  leading: Icon(
-                    Icons.location_on_outlined,
-                    color: Colors.grey.shade800,
-                  ),
+                  leading: Container(
+                      height: 30, child: Image.asset('assets/images/logo.png')),
                   title: Padding(
                     padding: const EdgeInsets.all(5),
                     child: Text('Laboratory T-203'),
@@ -73,30 +71,18 @@ class MoreInfoScreen extends StatelessWidget {
               Card(
                 child: ListTile(
                   leading: Icon(
-                    Icons.person_pin_circle,
-                    color: Colors.grey.shade800,
+                    Icons.description,
+                    color: Colors.blue,
                   ),
                   title: Padding(
                     padding: const EdgeInsets.all(5),
-                    child: Text('Your location : '),
+                    child: Text('description'),
+                  ),
+                  subtitle: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: Text('-'),
                   ),
                 ),
-              ),
-              GestureDetector(
-                child: Card(
-                  child: Column(
-                    children: [
-                      ListTile(
-                        leading: Icon(Icons.wifi),
-                        title: Text('Network'),
-                      ),
-                    ],
-                  ),
-                ),
-                onTap: () {
-                  Navigator.of(context)
-                      .pushReplacementNamed(NetworkScreen.routeName);
-                },
               ),
             ],
           ),

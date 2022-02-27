@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../screens/places_screen.dart';
-import '../screens/more_info_screen.dart';
+import 'screens/places_screen.dart';
+import 'screens/more_info_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
@@ -18,28 +18,33 @@ class MainDrawer extends StatelessWidget {
             width: double.infinity,
             padding: EdgeInsets.all(10),
             alignment: Alignment.centerLeft,
-            color: Color.fromRGBO(0, 153, 170, 1),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
+                Container(
+                    height: 30, child: Image.asset("assets/images/logo.png")),
                 Text(
-                  'My Account',
+                  '  My',
                   style: TextStyle(
                       fontFamily: 'Lato',
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.grey.shade900),
+                      color: Colors.amber),
                 ),
-                Icon(
-                  Icons.map_outlined,
-                  color: Colors.grey.shade200,
-                  size: 35,
+                Text(
+                  'Account ',
+                  style: TextStyle(
+                      fontFamily: 'Lato',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.lightBlue),
                 ),
               ],
             ),
           ),
+          Divider(),
           SizedBox(
-            height: 10,
+            height: 0,
           ),
           Container(
             child: Column(
@@ -52,7 +57,7 @@ class MainDrawer extends StatelessWidget {
                       padding: const EdgeInsets.all(10.0),
                       child: Icon(
                         Icons.account_circle,
-                        color: Colors.grey.shade800,
+                        color: Colors.grey.shade500,
                       ),
                     ),
                     title: Text('Username : ',
@@ -72,7 +77,7 @@ class MainDrawer extends StatelessWidget {
                       padding: const EdgeInsets.all(10.0),
                       child: Icon(
                         Icons.mail_outlined,
-                        color: Colors.grey.shade800,
+                        color: Colors.grey.shade600,
                       ),
                     ),
                     title: Text('Email : ',
@@ -101,12 +106,11 @@ class MainDrawer extends StatelessWidget {
                                     TextStyle(fontSize: 15, color: Colors.pink),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 5),
-                                child: Icon(
-                                  Icons.exit_to_app_outlined,
-                                  size: 20,
-                                  color: Colors.grey.shade700,
-                                ),
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Container(
+                                    height: 30,
+                                    child: Image.asset(
+                                        "assets/images/logout.png")),
                               ),
                             ],
                           ),
@@ -124,3 +128,4 @@ class MainDrawer extends StatelessWidget {
     );
   }
 }
+//77

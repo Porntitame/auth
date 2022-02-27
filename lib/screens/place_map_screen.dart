@@ -19,14 +19,13 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
   WiFiHunterResult wiFiHunterResults = WiFiHunterResult();
   List wiFiHunterResult = [];
   List<Map> dataset = [];
-  Color huntButtonColor = Colors.lightBlueAccent.shade100;
-  final _locationController = TextEditingController();
+  Color huntButtonColor = Colors.blue.shade400;
   var submit;
   bool isStoped = false;
-  var location;
-
-  // final formKey = GlobalKey<FormState>();
-  // Signal mySignal = Signal();
+  String locations;
+  Map<String, dynamic> location = {};
+  double x = 0;
+  double y = 0;
 
   @override
   void initState() {
@@ -38,7 +37,7 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
 
   Future<void> huntWiFis() async {
     if (!isStoped) {
-      setState(() => huntButtonColor = Colors.amber.shade300);
+      setState(() => huntButtonColor = Colors.blue.shade500);
 
       try {
         wiFiHunterResults = (await WiFiHunter.huntWiFiNetworks);
@@ -66,17 +65,15 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
             });
           }
         }
-        Future.delayed(Duration(seconds: 1), () async {
+        Future.delayed(Duration(seconds: 0), () async {
           await _submitData();
           huntWiFis();
         });
       } on PlatformException catch (exception) {
         print(exception.toString());
       }
-
-      if (!mounted) return;
-
-      setState(() => huntButtonColor = Colors.lightBlueAccent.shade100);
+      //if (!mounted) return;
+      setState(() => huntButtonColor = Colors.blue.shade400);
     }
   }
 
@@ -89,7 +86,7 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
 
     Map<String, dynamic> playload = {"dataset": dataset};
     try {
-      var url = Uri.parse('http://192.168.137.108:8000/rssi-to-coordinate');
+      var url = Uri.parse('http://172.20.10.4:8000/rssi-to-coordinate');
       var response = await http.post(
         url,
         body: json.encode(playload),
@@ -101,17 +98,16 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
         submit = () async {
           await _submitData();
         };
-        location = response.body;
+        locations = response.body;
+        location = json.decode(locations);
+        x = location['x'];
+        y = location['y'];
       });
 
       print('Response status: ${response.statusCode}');
       print('Response body: ${response.body}');
     } catch (e) {
-      setState(() {
-        submit = () async {
-          await _submitData();
-        };
-      });
+      print('something error');
     }
   }
 
@@ -119,39 +115,74 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(20.0),
         child: Form(
           child: SingleChildScrollView(
             child: Column(
               children: [
                 Container(
-                  width: 80,
-                  child: TextButton(
+                  width: 100,
+                  margin: const EdgeInsets.symmetric(vertical: 20.0),
+                  child: ElevatedButton(
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all<Color>(huntButtonColor)),
                     child: Row(
                       children: [
-                        Icon(Icons.navigation_outlined),
+                        Icon(
+                          Icons.navigation_rounded,
+                          color: Colors.white,
+                        ),
                         Text(
                           'Start',
-                          style: TextStyle(color: Colors.grey.shade800),
+                          style: TextStyle(color: Colors.white),
                         ),
                       ],
                     ),
                     onPressed: () => clickHuntWifi(),
                   ),
                 ),
-                wiFiHunterResult.isNotEmpty
-                    ? Column(
+                ClipRect(
+                  child: InteractiveViewer(
+                    child: Container(
+                      width: 500,
+                      height: 470,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("assets/images/t203.jpg"),
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ),
+                      child: Stack(
                         children: [
-                          Row(
-                            children: [
-                              Icon(Icons.location_on),
-                              Text('location : ${location}')
-                            ],
+                          Positioned(
+                            top: x,
+                            left: y,
+                            child: Icon(
+                              Icons.location_on,
+                              color: Colors.red,
+                            ),
                           ),
                         ],
+                      ),
+                    ),
+                  ),
+                ),
+                location.isNotEmpty
+                    ? Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                    height: 30,
+                                    child:
+                                        Image.asset('assets/images/logo.png')),
+                                Text('Your location : ${location.values}'),
+                              ],
+                            ),
+                          ],
+                        ),
                       )
                     : Container(),
               ],

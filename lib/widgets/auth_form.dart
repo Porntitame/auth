@@ -5,7 +5,7 @@ class AuthForm extends StatefulWidget {
     this.submitFn,
     this.isLoading,
   );
-
+//
   final bool isLoading;
   final void Function(
     String email,

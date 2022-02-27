@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/place_item.dart';
+import '../place_item.dart';
 import '../models/place_data.dart';
 import '../models/place.dart';
-import '../widgets/main_drawer.dart';
+import '../main_drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class PlacesScreen extends StatefulWidget {
@@ -13,38 +13,37 @@ class PlacesScreen extends StatefulWidget {
 }
 
 class _PlacesScreenState extends State<PlacesScreen> {
-  //void sendMessage() async {
-  //   final user = await FirebaseAuth.instance.currentUser();
-
-  //   print(user.uid);
-  // }
-  // @override
-  // void initState() {
-  //   final _auth = FirebaseAuth.instance;
-  //   final FirebaseUser user = _auth.currentUser().then((FirebaseUser user) {
-  //     final userid = user.uid;
-
-  //     print(user);
-  //   }) as FirebaseUser;
-  // ignore: todo
-  // TODO: implement initState
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(0, 153, 170, 1),
-        title: Text(
-          'Indoor Positioning',
-          style: TextStyle(
-              fontFamily: 'Lato',
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: Colors.grey.shade900),
+        backgroundColor: Colors.white,
+        title: Row(
+          children: [
+            Text(
+              'My',
+              style: TextStyle(
+                  fontFamily: 'Lato',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.amber),
+            ),
+            Text(
+              'Maps ',
+              style: TextStyle(
+                  fontFamily: 'Lato',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.lightBlue),
+            ),
+            Container(
+                padding: EdgeInsets.only(left: 8),
+                height: 30,
+                child: Image.asset("assets/images/map.png")),
+          ],
         ),
+        iconTheme: IconThemeData(color: Colors.grey.shade700),
       ),
       drawer: MainDrawer(),
       body: Container(

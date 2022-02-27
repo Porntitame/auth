@@ -7,7 +7,6 @@ import '../screens/places_screen.dart';
 import 'screens/place_map_screen.dart';
 import '../screens/more_info_screen.dart';
 import '../screens/tabs_screen.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -20,12 +19,11 @@ class MyApp extends StatelessWidget {
         // backgroundColor: Colors.pink,
         accentColor: Colors.deepPurple,
         accentColorBrightness: Brightness.dark,
-        // buttonTheme: ButtonTheme.of(context).copyWith(
-        //   textTheme: ButtonTextTheme.primary,
-        //   shape: RoundedRectangleBorder(
         //     borderRadius: BorderRadius.circular(20),
         //   ),
-        // ),
+        // ), // buttonTheme: ButtonTheme.of(context).copyWith(
+        //   textTheme: ButtonTextTheme.primary,
+        //   shape: RoundedRectangleBorder(
       ),
       home: StreamBuilder(
           stream: FirebaseAuth.instance.onAuthStateChanged,

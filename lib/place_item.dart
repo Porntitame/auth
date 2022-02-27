@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../screens/place_map_screen.dart';
+import 'screens/place_map_screen.dart';
 
-import '../models/place.dart';
+import 'models/place.dart';
 
 class PlaceItem extends StatelessWidget {
   final String id;
