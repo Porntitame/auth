@@ -7,6 +7,7 @@ import '../screens/places_screen.dart';
 import 'screens/place_map_screen.dart';
 import '../screens/more_info_screen.dart';
 import '../screens/tabs_screen.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -15,15 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Indoor Positioning',
       theme: ThemeData(
-        // primarySwatch: Colors.pink,
-        // backgroundColor: Colors.pink,
         accentColor: Colors.deepPurple,
         accentColorBrightness: Brightness.dark,
-        //     borderRadius: BorderRadius.circular(20),
-        //   ),
-        // ), // buttonTheme: ButtonTheme.of(context).copyWith(
-        //   textTheme: ButtonTextTheme.primary,
-        //   shape: RoundedRectangleBorder(
       ),
       home: StreamBuilder(
           stream: FirebaseAuth.instance.onAuthStateChanged,

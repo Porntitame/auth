@@ -10,7 +10,7 @@ class AuthForm extends StatefulWidget {
   final void Function(
     String email,
     String password,
-    String userName,
+    String username,
     bool isLogin,
     BuildContext ctx,
   ) submitFn;

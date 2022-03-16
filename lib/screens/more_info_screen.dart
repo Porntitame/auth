@@ -59,7 +59,7 @@ class MoreInfoScreen extends StatelessWidget {
                       height: 30, child: Image.asset('assets/images/logo.png')),
                   title: Padding(
                     padding: const EdgeInsets.all(5),
-                    child: Text('Laboratory T-203'),
+                    child: Text('Co-working Space'),
                   ),
                   subtitle: Padding(
                     padding: const EdgeInsets.all(5),

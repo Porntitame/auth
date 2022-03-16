@@ -59,6 +59,7 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
           // ].contains(wiFiHunterResults.results[index].BSSID))
           {
             wiFiHunterResult.add(wiFiHunterResults.results[index]);
+
             dataset.add({
               'BSSID': wiFiHunterResults.results[index].BSSID,
               'RSSI': wiFiHunterResults.results[index].level,
@@ -86,7 +87,7 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
 
     Map<String, dynamic> playload = {"dataset": dataset};
     try {
-      var url = Uri.parse('http://172.20.10.4:8000/rssi-to-coordinate');
+      var url = Uri.parse('http://192.168.137.108:8000/rssi-to-coordinate');
       var response = await http.post(
         url,
         body: json.encode(playload),
@@ -100,14 +101,14 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
         };
         locations = response.body;
         location = json.decode(locations);
-        x = location['x'];
-        y = location['y'];
+        x = location['x'].toDouble();
+        y = location['y'].toDouble();
       });
 
       print('Response status: ${response.statusCode}');
       print('Response body: ${response.body}');
     } catch (e) {
-      print('something error');
+      print(e);
     }
   }
 
@@ -153,15 +154,25 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
                         ),
                       ),
                       child: Stack(
-                        children: [
-                          Positioned(
-                            top: x,
-                            left: y,
-                            child: Icon(
-                              Icons.location_on,
-                              color: Colors.red,
+                        children: <Widget>[
+                          new Positioned.fill(
+                            child: new LayoutBuilder(
+                              builder: (context, constraints) {
+                                return Transform.translate(
+                                  offset: Offset(
+                                    (constraints.biggest.width * (x + 1) / 7) -
+                                        (constraints.biggest.width / 2),
+                                    (constraints.biggest.height * (y + 1) / 8) -
+                                        (constraints.biggest.height / 2),
+                                  ),
+                                  child: Icon(
+                                    Icons.location_on,
+                                    color: Colors.red,
+                                  ),
+                                );
+                              },
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),
@@ -193,3 +204,20 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
     );
   }
 }
+
+
+
+
+// child: Stack(
+                      //   alignment: ,
+                      //   children: [
+                      //     Positioned(
+                      //       top: x,
+                      //       left: y,
+                      //       child: Icon(
+                      //         Icons.location_on,
+                      //         color: Colors.red,
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),

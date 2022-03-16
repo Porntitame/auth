@@ -5,9 +5,14 @@ import '../models/place_data.dart';
 import '../models/place.dart';
 import '../main_drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import './auth_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PlacesScreen extends StatefulWidget {
   static const routeName = '/';
+
   @override
   _PlacesScreenState createState() => _PlacesScreenState();
 }

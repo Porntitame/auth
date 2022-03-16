@@ -3,10 +3,32 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'screens/places_screen.dart';
-import 'screens/more_info_screen.dart';
+import './screens/places_screen.dart';
+import './screens/more_info_screen.dart';
+import './screens/auth_screen.dart';
 
-class MainDrawer extends StatelessWidget {
+class MainDrawer extends StatefulWidget {
+  @override
+  State<MainDrawer> createState() => _MainDrawerState();
+}
+
+class _MainDrawerState extends State<MainDrawer> {
+  final _auth = FirebaseAuth.instance;
+  FirebaseUser user;
+  @override
+  Future<FirebaseUser> getCurrentUser() {
+    _auth.currentUser().then((value) {
+      setState(() {
+        user = value;
+      });
+    });
+  }
+
+  void initState() {
+    super.initState();
+    getCurrentUser();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -63,7 +85,10 @@ class MainDrawer extends StatelessWidget {
                     title: Text('Username : ',
                         style: TextStyle(
                             fontSize: 16, color: Colors.grey.shade800)),
-                    subtitle: Text('Porntita Meesat',
+                    subtitle: Text(
+                        user != null && user.displayName != null
+                            ? user.displayName
+                            : '',
                         style: TextStyle(
                             fontSize: 16, color: Colors.grey.shade600)),
                   ),
@@ -83,7 +108,7 @@ class MainDrawer extends StatelessWidget {
                     title: Text('Email : ',
                         style: TextStyle(
                             fontSize: 16, color: Colors.grey.shade800)),
-                    subtitle: Text('61011402@KMITL.ac.th',
+                    subtitle: Text(user != null ? user.email : '',
                         style: TextStyle(
                             fontSize: 16, color: Colors.grey.shade600)),
                   ),
@@ -128,4 +153,4 @@ class MainDrawer extends StatelessWidget {
     );
   }
 }
-//77
+//
