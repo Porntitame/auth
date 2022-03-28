@@ -52,11 +52,16 @@ flutter:
   assets:
     - assets/images/t203.jpg
     - assets/images/logo.png
-    - assets/images/bg.png
-    - assets/images/room.jpg
-    - assets/images/start.png
+    - assets/images/room.jpg  
     - assets/images/map.png
     - assets/images/logout.png
+    - assets/images/coWorking.jpg
+    - assets/images/map2.png
+    - assets/images/bg.jpg
+    - assets/images/grid1.jpg
+    - assets/images/co.jpg
+    - assets/images/lo.png
+    
   # assets:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg

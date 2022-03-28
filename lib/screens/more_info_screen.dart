@@ -4,8 +4,6 @@ import '../main_drawer.dart';
 
 import '../models/place_data.dart';
 
-import './network_screen.dart';
-
 class MoreInfoScreen extends StatelessWidget {
   static const routeName = '/more-info';
 
@@ -51,7 +49,7 @@ class MoreInfoScreen extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                child: Image.asset('assets/images/room.jpg'),
+                child: Image.asset('assets/images/co.jpg'),
               ),
               Card(
                 child: ListTile(
@@ -80,7 +78,8 @@ class MoreInfoScreen extends StatelessWidget {
                   ),
                   subtitle: Padding(
                     padding: const EdgeInsets.all(5),
-                    child: Text('-'),
+                    child: Text(
+                        'Area for reading, working, tutoring for exams until reaching group meetings of telecom residents'),
                   ),
                 ),
               ),

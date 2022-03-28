@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_complete_guide/screens/network_screen.dart';
 
 import '../screens/auth_screen.dart';
 import '../screens/places_screen.dart';
@@ -30,7 +29,6 @@ class MyApp extends StatelessWidget {
       routes: {
         PlaceMapScreen.routeName: (ctx) => TabsScreen(),
         MoreInfoScreen.routeName: (ctx) => MoreInfoScreen(),
-        NetworkScreen.routeName: (ctx) => NetworkScreen(),
       },
     );
   }

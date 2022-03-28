@@ -71,6 +71,29 @@ class _MainDrawerState extends State<MainDrawer> {
           Container(
             child: Column(
               children: [
+                // Container(
+                //   height: 60,
+                //   child: ListTile(
+                //     horizontalTitleGap: 5,
+                //     leading: Padding(
+                //       padding: const EdgeInsets.all(10.0),
+                //       child: Icon(
+                //         Icons.account_circle,
+                //         color: Colors.grey.shade500,
+                //       ),
+                //     ),
+                //     title: Text('Username : ',
+                //         style: TextStyle(
+                //             fontSize: 16, color: Colors.grey.shade800)),
+                //     subtitle: Text(
+                //         user != null && user.displayName != null
+                //             ? user.displayName
+                //             : '',
+                //         style: TextStyle(
+                //             fontSize: 16, color: Colors.grey.shade600)),
+                //   ),
+                // ),
+                // Divider(),
                 Container(
                   height: 60,
                   child: ListTile(
@@ -78,30 +101,7 @@ class _MainDrawerState extends State<MainDrawer> {
                     leading: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Icon(
-                        Icons.account_circle,
-                        color: Colors.grey.shade500,
-                      ),
-                    ),
-                    title: Text('Username : ',
-                        style: TextStyle(
-                            fontSize: 16, color: Colors.grey.shade800)),
-                    subtitle: Text(
-                        user != null && user.displayName != null
-                            ? user.displayName
-                            : '',
-                        style: TextStyle(
-                            fontSize: 16, color: Colors.grey.shade600)),
-                  ),
-                ),
-                Divider(),
-                Container(
-                  height: 60,
-                  child: ListTile(
-                    horizontalTitleGap: 5,
-                    leading: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Icon(
-                        Icons.mail_outlined,
+                        Icons.person,
                         color: Colors.grey.shade600,
                       ),
                     ),
@@ -118,7 +118,8 @@ class _MainDrawerState extends State<MainDrawer> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      margin: EdgeInsets.all(20),
+                      margin: EdgeInsets.only(
+                          top: 50, left: 20, right: 20, bottom: 20),
                       height: 35,
                       width: 100,
                       color: Colors.grey.shade200,
@@ -144,7 +145,10 @@ class _MainDrawerState extends State<MainDrawer> {
                           }),
                     ),
                   ],
-                )
+                ),
+                Container(
+                    margin: EdgeInsets.only(top: 270, left: 30, right: 30),
+                    child: Image.asset("assets/images/map2.png"))
               ],
             ),
           ),
