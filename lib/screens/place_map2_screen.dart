@@ -24,8 +24,8 @@ class _PlaceMap2ScreenState extends State<PlaceMap2Screen> {
   bool isStoped = false;
   String locations;
   Map<String, dynamic> location = {};
-  double x = 0;
-  double y = 0;
+  double x = 1;
+  double y = 33;
   List<List<Map>> datasets = [];
   Map<String, double> data = {};
 
@@ -255,16 +255,24 @@ class _PlaceMap2ScreenState extends State<PlaceMap2Screen> {
                               builder: (context, constraints) {
                                 return Transform.translate(
                                   offset: Offset(
-                                    (x)
-                                    // (constraints.biggest.width * (x + 1) / 9) -
-                                    //     (constraints.biggest.width / 2)
-                                    ,
-                                    // (constraints.biggest.height *
-                                    //         (y + 1) /
-                                    //         10) -
-                                    //     (constraints.biggest.height / 2)
-                                    (y),
-                                  ),
+                                      x == 0
+                                          ? 0
+                                          : constraints.biggest.width * 2 / 100,
+                                      0 -
+                                          32 /
+                                              100 *
+                                              (constraints.biggest.height) +
+                                          ((y / 66) *
+                                              (72.5 /
+                                                  100 *
+                                                  (constraints.biggest.height)))
+                                      // (constraints.biggest.width * 0.01 / 9) -
+                                      //     (constraints.biggest.width / 2),
+                                      // (0 - (0.3*constraints.biggest.height) + (1/66*(0.5*constraints.biggest.height))*y
+                                      //         (y + 1) /
+                                      //         10) -
+                                      //     (constraints.biggest.height / 2),
+                                      ),
                                   child: Icon(
                                     Icons.location_on,
                                     color: Colors.red,
@@ -305,7 +313,7 @@ class _PlaceMap2ScreenState extends State<PlaceMap2Screen> {
                                     height: 30,
                                     child:
                                         Image.asset('assets/images/logo.png')),
-                                Text('Your location : ${location.values}'),
+                                Text('Your location : (1 , 28)'),
                               ],
                             ),
                           ],
