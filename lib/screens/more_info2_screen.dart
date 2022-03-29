@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-// import '../main_drawer.dart';
-// import '../models/place_data.dart';
-
-class MoreInfoScreen extends StatelessWidget {
-  static const routeName = '/more-info';
+class MoreInfo2Screen extends StatelessWidget {
+  static const routeName = '/more-info2';
 
   Widget buildCard(String Device, String SSID, String RSSI) {
     return Container(
@@ -48,7 +45,7 @@ class MoreInfoScreen extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                child: Image.asset('assets/images/co.jpg'),
+                child: Image.asset('assets/images/corridor.jpg'),
               ),
               Card(
                 child: ListTile(
@@ -56,7 +53,7 @@ class MoreInfoScreen extends StatelessWidget {
                       height: 30, child: Image.asset('assets/images/logo.png')),
                   title: Padding(
                     padding: const EdgeInsets.all(5),
-                    child: Text('Co-working Space'),
+                    child: Text('3rd Floor Corridor'),
                   ),
                   subtitle: Padding(
                     padding: const EdgeInsets.all(5),
@@ -78,7 +75,7 @@ class MoreInfoScreen extends StatelessWidget {
                   ),
                   subtitle: Padding(
                     padding: const EdgeInsets.all(5),
-                    child: Text('size : 3.5 x 4.0 square meters'),
+                    child: Text('size : 2.1 x 33.0 square meters'),
                   ),
                 ),
               ),
@@ -94,8 +91,7 @@ class MoreInfoScreen extends StatelessWidget {
                   ),
                   subtitle: Padding(
                     padding: const EdgeInsets.all(5),
-                    child: Text(
-                        'Area for reading, working, tutoring for exams until reaching group meetings of telecom residents'),
+                    child: Text('-'),
                   ),
                 ),
               ),

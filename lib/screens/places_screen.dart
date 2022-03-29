@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../place_item.dart';
 import '../models/place_data.dart';
-import '../models/place.dart';
+//import '../models/place.dart';
 import '../main_drawer.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import './auth_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import './auth_screen.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:flutter/services.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PlacesScreen extends StatefulWidget {
   static const routeName = '/';
@@ -54,7 +54,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/bg.jpg"),
+            image: AssetImage("assets/images/bg1.jpg"),
             fit: BoxFit.cover,
           ),
         ),

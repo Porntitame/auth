@@ -4,8 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../screens/auth_screen.dart';
 import '../screens/places_screen.dart';
 import 'screens/place_map_screen.dart';
+import 'screens/place_map2_screen.dart';
 import '../screens/more_info_screen.dart';
+import '../screens/more_info2_screen.dart';
 import '../screens/tabs_screen.dart';
+import '../screens/tabs2_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,7 +31,9 @@ class MyApp extends StatelessWidget {
           }),
       routes: {
         PlaceMapScreen.routeName: (ctx) => TabsScreen(),
+        PlaceMap2Screen.routeName: (ctx) => Tabs2Screen(),
         MoreInfoScreen.routeName: (ctx) => MoreInfoScreen(),
+        MoreInfo2Screen.routeName: (ctx) => MoreInfo2Screen(),
       },
     );
   }

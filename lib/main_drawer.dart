@@ -1,11 +1,11 @@
-import 'package:flutter/foundation.dart';
+//import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 
-import './screens/places_screen.dart';
-import './screens/more_info_screen.dart';
-import './screens/auth_screen.dart';
+// import './screens/places_screen.dart';
+// import './screens/more_info_screen.dart';
+// import './screens/auth_screen.dart';
 
 class MainDrawer extends StatefulWidget {
   @override
@@ -147,7 +147,7 @@ class _MainDrawerState extends State<MainDrawer> {
                   ],
                 ),
                 Container(
-                    margin: EdgeInsets.only(top: 270, left: 30, right: 30),
+                    margin: EdgeInsets.only(top: 230, left: 30, right: 30),
                     child: Image.asset("assets/images/map2.png"))
               ],
             ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'screens/place_map_screen.dart';
+// import 'screens/place_map_screen.dart';
+// import 'screens/place_map2_screen.dart';
 
-import 'models/place.dart';
+// import 'models/place.dart';
 
 class PlaceItem extends StatelessWidget {
   final String id;
@@ -20,7 +21,11 @@ class PlaceItem extends StatelessWidget {
   void selectPlace(BuildContext context) {
     Navigator.of(context)
         .pushNamed(
-      PlaceMapScreen.routeName,
+      id == 'p1'
+          ? '/place-map'
+          : id == 'p2'
+              ? '/place-map2'
+              : '/',
       arguments: id,
     )
         .then((result) {
@@ -47,7 +52,7 @@ class PlaceItem extends StatelessWidget {
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
-                  child: Image.network(
+                  child: Image.asset(
                     imageUrl,
                     height: 250,
                     width: double.infinity,

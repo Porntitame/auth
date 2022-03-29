@@ -8,12 +8,12 @@ import './more_info2_screen.dart';
 
 import '../models/place_data.dart';
 
-class TabsScreen extends StatefulWidget {
+class Tabs2Screen extends StatefulWidget {
   @override
-  _TabsScreenState createState() => _TabsScreenState();
+  _Tabs2ScreenState createState() => _Tabs2ScreenState();
 }
 
-class _TabsScreenState extends State<TabsScreen> {
+class _Tabs2ScreenState extends State<Tabs2Screen> {
   List<Map<String, Object>> _pages;
   int _selectPageIndex = 0;
 
@@ -21,8 +21,8 @@ class _TabsScreenState extends State<TabsScreen> {
   void initState() {
     var selectedPlace;
     _pages = [
-      {'page': PlaceMapScreen(), 'title': 'Co-working Space'},
-      {'page': MoreInfoScreen(), 'title': 'Information'},
+      {'page': PlaceMap2Screen(), 'title': '3rd Floor Corridor'},
+      {'page': MoreInfo2Screen(), 'title': 'Information'},
     ];
 
     super.initState();

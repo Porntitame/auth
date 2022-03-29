@@ -8,14 +8,14 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-class PlaceMapScreen extends StatefulWidget {
-  static const routeName = '/place-map';
+class PlaceMap2Screen extends StatefulWidget {
+  static const routeName = '/place-map2';
 
   @override
-  State<PlaceMapScreen> createState() => _PlaceMapScreenState();
+  State<PlaceMap2Screen> createState() => _PlaceMap2ScreenState();
 }
 
-class _PlaceMapScreenState extends State<PlaceMapScreen> {
+class _PlaceMap2ScreenState extends State<PlaceMap2Screen> {
   WiFiHunterResult wiFiHunterResults = WiFiHunterResult();
   List wiFiHunterResult = [];
   List<Map> dataset = [];
@@ -24,8 +24,8 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
   bool isStoped = false;
   String locations;
   Map<String, dynamic> location = {};
-  double x = 3.5;
-  double y = 8.5;
+  double x = 0;
+  double y = 0;
   List<List<Map>> datasets = [];
   Map<String, double> data = {};
 
@@ -241,10 +241,10 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
                   child: InteractiveViewer(
                     child: Container(
                       width: 500,
-                      height: 470,
+                      height: 830,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("assets/images/mapCo.jpg"),
+                          image: AssetImage("assets/images/mapCor.jpg"),
                           fit: BoxFit.fitWidth,
                         ),
                       ),
@@ -255,12 +255,15 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
                               builder: (context, constraints) {
                                 return Transform.translate(
                                   offset: Offset(
-                                    (constraints.biggest.width * (x + 1) / 9) -
-                                        (constraints.biggest.width / 2),
-                                    (constraints.biggest.height *
-                                            (y + 1) /
-                                            10) -
-                                        (constraints.biggest.height / 2),
+                                    (x)
+                                    // (constraints.biggest.width * (x + 1) / 9) -
+                                    //     (constraints.biggest.width / 2)
+                                    ,
+                                    // (constraints.biggest.height *
+                                    //         (y + 1) /
+                                    //         10) -
+                                    //     (constraints.biggest.height / 2)
+                                    (y),
                                   ),
                                   child: Icon(
                                     Icons.location_on,
@@ -307,7 +310,7 @@ class _PlaceMapScreenState extends State<PlaceMapScreen> {
                             ),
                           ],
                         ),
-                      ),
+                      )
               ],
             ),
           ),
